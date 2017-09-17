@@ -5,7 +5,8 @@ var socket = io.connect("https://disjoint-set-connecthedots.c9users.io/");
 var messageInput = document.getElementById('messageInput'),
       user = document.getElementById('user'),
       sendButton = document.getElementById('send'),
-      displays = document.getElementById('displays');
+      displays = document.getElementById('displays'),
+      state = document.getElementById('state');
 
 //Add event listeners
 
@@ -23,8 +24,16 @@ sendButton.addEventListener('click', function(){
     messageInput.value = "";
 });
 
+messageInput.addEventListener('keydown', function(){
+    socket.emit('typing', user.value);
+})
+
 //Sockets listening for emitted events
 socket.on("new message", function(data){
-    // feedback.innerHTML = '';
+    state.innerHTML = "";
     displays.innerHTML += '<p><strong>' + data.user + ': </strong>' + data.message + '</p>';
+});
+
+socket.on('active', function(data){
+    state.innerHTML = '<p><em>' + data + ' is typing a message...</em></p>';
 });
