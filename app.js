@@ -18,6 +18,11 @@ var server = app.listen(process.env.PORT, process.env.IP, function(){
 var io = socket(server);
 
 io.on("connection", function(socket){
-    console.log("Socket connected!");
+    console.log("New socket connected!");
     console.log(socket.id);
+    
+    socket.on('new message', function(data){
+        // console.log(data);
+        io.sockets.emit('new message', data);
+    });
 })
