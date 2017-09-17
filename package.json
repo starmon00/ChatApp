@@ -1,0 +1,30 @@
+{
+  "name": "chatter-app",
+  "version": "1.0.0",
+  "description": "App that helps filter out the important parts of your conversation",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/starmon00/ChatApp.git"
+  },
+  "keywords": [
+    "Chat",
+    "app",
+    "techcrunch",
+    "hackathon"
+  ],
+  "author": "connecthedots, starmon00",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/starmon00/ChatApp/issues"
+  },
+  "homepage": "https://github.com/starmon00/ChatApp#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "socket.io": "^2.0.3"
+  }
+}
